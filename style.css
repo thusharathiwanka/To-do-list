@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   min-height: 100vh;
   color: white;
@@ -25,7 +29,8 @@ form {
 }
 
 form input {
-  min-width: 40%;
+  min-width: 30%;
+  padding: 0.5rem;
 }
 
 form input,
@@ -34,7 +39,6 @@ form button {
   font-size: 1.5rem;
   border: none;
   outline: none;
-  padding: 0.5rem;
   background: white;
 }
 
@@ -42,9 +46,57 @@ button {
   color: #42275a;
   cursor: pointer;
   transition: all 0.5s ease;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  background: white;
 }
 
 button:hover {
   color: white;
   background: #42275a;
+}
+
+.task-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-list {
+  min-width: 25%;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  color: black;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+
+.task li {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.task .complete-btn,
+.task .remove-btn {
+  color: white;
+  font-size: 1rem;
+}
+
+.task .remove-btn {
+  background: #c25261;
+}
+
+.task .complete-btn {
+  background: #5bce81;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
 }
