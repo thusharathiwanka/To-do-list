@@ -28,6 +28,13 @@ form {
   justify-content: center;
 }
 
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 form input {
   min-width: 30%;
   padding: 0.5rem;
@@ -52,9 +59,53 @@ button {
   background: white;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  color: #42275a;
+  font-family: "poppins", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 12rem;
+  padding: 0.8rem;
+}
+
 button:hover {
   color: white;
   background: #42275a;
+}
+
+.select {
+  margin: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  background: #42275a;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.select:hover::after {
+  content: "\25BC";
+  background: white;
+  color: #42275a;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .task-list-container {
@@ -105,4 +156,9 @@ button:hover {
 .completed {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+.deleted {
+  transform: translateY(5rem) rotateZ(20deg);
+  opacity: 0;
 }

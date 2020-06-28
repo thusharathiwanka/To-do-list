@@ -15,10 +15,19 @@
          <h1>Todo List</h1>
       </header>
       <main>
-         <form>
-            <input type="text" name="task" class="task-input" required>
-            <button class="add-btn" type="submit"><i class="fas fa-plus-square"></i></button>
-         </form>
+         <div class="form-container">
+            <form>
+               <input type="text" name="task" class="task-input" required>
+               <button class="add-btn" type="submit"><i class="fas fa-plus-square"></i></button>
+            </form>
+            <div class="select">
+               <select class="filter-task">
+                  <option value="all">All</option>
+                  <option value="completed">Completed</option>
+                  <option value="uncompleted">Uncompleted</option>
+               </select>
+            </div>
+         </div>
          <div class="task-list-container">
             <ul class="task-list">
             </ul>
