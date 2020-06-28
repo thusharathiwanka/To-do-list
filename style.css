@@ -1,8 +1,11 @@
+/* Clearing defaults */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Global styles */
 
 ul {
   list-style: none;
@@ -78,6 +81,8 @@ button:hover {
   color: white;
   background: #42275a;
 }
+
+/* Custom classes styles */
 
 .select {
   margin: 2rem;
