@@ -57,6 +57,7 @@ function taskDeleteCheck(element) {
     add event listener of transition end */
     setTimeout(() => {
       clickElement.parentElement.remove();
+      removeLocalTodos(clickElement);
     }, 500);
   }
 
@@ -150,7 +151,7 @@ function displaySavedTodos() {
   });
 }
 
-function removeLocalTodos() {
+function removeLocalTodos(task) {
   //Checking for already created tasks
   let tasks;
   if (localStorage.getItem("tasks") === null) {
@@ -158,4 +159,8 @@ function removeLocalTodos() {
   } else {
     tasks = JSON.parse(localStorage.getItem("tasks"));
   }
+  //Getting clicked index and removing from array
+  const taskIndex = task.children[0].innerHTML;
+  tasks.splice(tasks.indexOf(taskIndex), 1);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
