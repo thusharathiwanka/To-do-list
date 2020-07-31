@@ -5,6 +5,7 @@ const taskList = document.querySelector(".task-list");
 const filterOption = document.querySelector(".filter-task");
 
 //Adding event listeners
+document.addEventListener("DOMContentLoaded", displaySavedTodos);
 addBtn.addEventListener("click", addTask);
 taskList.addEventListener("click", taskDeleteCheck);
 filterOption.addEventListener("click", filterTask);
@@ -97,6 +98,7 @@ function filterTask(element) {
   });
 }
 
+//Creating a function for save todos
 function saveLocalTasks(task) {
   //Checking for already created tasks
   let tasks;
@@ -108,4 +110,52 @@ function saveLocalTasks(task) {
   //Pushing tasks to array
   tasks.push(task);
   localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+//Creating function for display saved todos
+function displaySavedTodos() {
+  //Checking for already created tasks
+  let tasks;
+  if (localStorage.getItem("tasks") === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+
+  tasks.forEach(function (task) {
+    //Creating div
+    const taskDiv = document.createElement("div");
+    taskDiv.classList.add("task");
+
+    //Creating li
+    const newTask = document.createElement("li");
+    newTask.innerText = task;
+    newTask.classList.add("task-item");
+    taskDiv.appendChild(newTask);
+
+    //Adding check button
+    const completeBtn = document.createElement("button");
+    completeBtn.classList.add("complete-btn");
+    completeBtn.innerHTML = "<li class='fas fa-check'></li>";
+    taskDiv.appendChild(completeBtn);
+
+    //Adding remove button
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-btn");
+    removeBtn.innerHTML = "<li class='fas fa-trash'></li>";
+    taskDiv.appendChild(removeBtn);
+
+    //Append div to list
+    taskList.appendChild(taskDiv);
+  });
+}
+
+function removeLocalTodos() {
+  //Checking for already created tasks
+  let tasks;
+  if (localStorage.getItem("tasks") === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
 }
