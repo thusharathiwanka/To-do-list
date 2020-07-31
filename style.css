@@ -6,7 +6,6 @@
 }
 
 /* Global styles */
-
 ul {
   list-style: none;
 }
@@ -18,8 +17,8 @@ body {
   background-image: linear-gradient(120deg, #42275a, #734b6d);
 }
 
-header {
-  font-size: 1.5rem;
+h1 {
+  font-size: 4rem;
   font-weight: 500;
 }
 
@@ -83,7 +82,6 @@ button:hover {
 }
 
 /* Custom classes styles */
-
 .select {
   margin: 2rem;
   position: relative;
@@ -146,11 +144,11 @@ button:hover {
 }
 
 .task .remove-btn {
-  background: #c25261;
+  background: #c03548;
 }
 
 .task .complete-btn {
-  background: #5bce81;
+  background: #33c062;
 }
 
 .fa-trash,
