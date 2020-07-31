@@ -39,6 +39,8 @@ function addTask(event) {
     //Append div to list
     taskList.appendChild(taskDiv);
 
+    //Adding tasks to local storage
+    saveLocalTasks(taskInput.value);
     //Clearing input value
     taskInput.value = "";
   }
@@ -93,4 +95,17 @@ function filterTask(element) {
       }
     }
   });
+}
+
+function saveLocalTasks(task) {
+  //Checking for already created tasks
+  let tasks;
+  if (localStorage.getItem("tasks") === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  //Pushing tasks to array
+  tasks.push(task);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
